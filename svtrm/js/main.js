@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    var renderedVideo;
+
     // set up click to section scrolling:
 
     var SCROLL_SPEED = 300;
@@ -7,7 +9,6 @@ $(document).ready(function() {
     var scrollTos = {
         '.home': '#about'
     };
-
 
     for (var clickSel in scrollTos) {
         $(clickSel).click(function(targetSel, e) {
@@ -40,6 +41,7 @@ $(document).ready(function() {
             if (!hasScrolledClass) {
                 $header.addClass('scrolled');
                 hasScrolledClass = 1;
+                loadVideo();
             }
         } else if (hasScrolledClass) {
             $header.removeClass('scrolled');
@@ -52,8 +54,7 @@ $(document).ready(function() {
     $(window).on('scroll', updateHeader);
 
     // read more section
-    var $readmore = $('.read-more'),
-        renderedVideo;
+    var $readmore = $('.read-more');
 
     $('.btn--read-more').click(function(e) {
       e.preventDefault();
@@ -70,12 +71,18 @@ $(document).ready(function() {
           }, 300);
 
           setTimeout(function() {
-            if (!renderedVideo) {
-              $('.read-more__video').html(
-                '<video autoplay muted loop src="img/making.mp4"></video>'
-              );
-            }
+            loadVideo();
           }, 800);
       }
     });
+
+    function loadVideo() {
+      if (renderedVideo) { return; }
+
+      $('.read-more__video').html(
+        '<video autoplay muted loop src="img/making.mp4"></video>'
+      );
+
+      renderedVideo = 1;
+    }
 });
