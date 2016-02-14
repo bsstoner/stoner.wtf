@@ -403,7 +403,11 @@ h2 {
         }
 
 
-
+@media all and (max-width: 699px) {
+  .header, .header.scrolled {
+     display: none !important;
+  }
+}
 
 
 
