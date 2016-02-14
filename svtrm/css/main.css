@@ -13,8 +13,13 @@
 html {
     color: #414243;
     font-size: 1em;
-    line-height: 1.4;
+    line-height: 1.5;
+    font-weight: 300;
     font-family: "Merriweather";
+}
+
+a, a:visited {
+    color: #414243;
 }
 
 /*
@@ -63,6 +68,10 @@ video {
     vertical-align: middle;
 }
 
+img {
+    max-width: 100%;
+}
+
 /*
  * Remove default fieldset styles.
  */
@@ -81,167 +90,292 @@ textarea {
     resize: vertical;
 }
 
+h2 {
+    font-size: 2em;
+    font-weight: 300;
+}
+
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
+
+.logo {
+    position: relative;
+    display: inline-block;
+}
+    .logo__trmtab {
+        display: inline-block;
+        height: 50px;
+        border-right: 1px solid #aaa;
+    }
+    .logo__trmtab__img {
+        width: 50px;
+        padding-right: 15px;
+    }
+    .logo__sv__img {
+        margin: 0 8px;
+        width: 190px;
+    }
+
+    .logo--home {
+        margin-top: 60px;
+    }
+
+    .logo--header .logo__trmtab {
+        height: 30px;
+    }
+    .logo--header .logo__trmtab__img {
+        width: 30px;
+    }
+    .logo--header .logo__sv__img {
+        width: 140px;
+    }
 
 
 .btn {
     display: inline-block;
     padding: 10px 30px;
     margin: 15px 0;
-    border: 1px solid #948072;
-    color: #948072;
+    border: 1px solid #414243;
+    color: #414243;
     font-family: "Open Sans";
     text-transform: uppercase;
     text-decoration: none;
     font-size: 1.2em;
 }
     .btn:hover, .btn:active {
-        background-color: #948072;
-        color: #fff; 
-        font-weight: 300;
+        background-color: #414243;
+        color: #fff;
     }
 
 .header {
-    display: block;
+    position: fixed;
+    top: -60px;
+    width: 100%;
+    background: rgba(255,255,255,0.95);
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    z-index: 10;
+    height: 30px;
+    padding: 10px 0;
+    overflow: hidden;
+    -webkit-transition: all 0.2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+    transition: all 0.2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+    .header.scrolled {
+        top: 0px;
+    }
+    .header-inner {
+        width: 1120px;
+        margin: 0 auto;
+        position: relative;
+    }
+    .btn--header {
+        font-size: .8em;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 0;
+        padding: 5px 15px;
+        border: none;
+    }
+
+.home {
     position: relative;
     margin: 0 auto;
-    width: 1280px;
-    height: 960px;
+    width: 1120px;
+    height: 730px;
     overflow: hidden;
     text-decoration: none;
     color: #414243;
 }
-
-    .header__img {
+    .home__img {
         position: absolute;
         width: 100%;
         top: 0;
         left: 130px;
     }
 
-    .header__content {
+    .home__text {
         position: relative;
         top: 260px;
-        width: 500px;
-        text-align: center;
-    }
-
-.title {
-    font-size: 3em;
-    line-height: 1em;
-    font-weight: 300;
-    margin: 15px 0;
-}
-
-    .title__small {
-        font-size: .5em;
-        line-height: 1em;
-        vertical-align: middle;
-    }
-
-.subtitle {
-   margin: 15px 0;
-   font-weight: 300;
-   color: #948072;
-}
-
-.logo {
-    position: relative;
-    display: inline-block;
-    height: 70px;
-}
-    .logo--header {
-        margin-top: 30px;
+        width: 420px;
+        left: 50px;
+        font-size: 2em;
+        line-height: 1.5;
     }
 
 
-.about {
-    width: 1200px;
+.about-section {
     position: relative;
     margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
+    width: 1120px;
+    overflow: hidden;
 }
-    .about__item {
-        width: 340px;
-        display: block;
-        padding: 30px;
+    .about__text {
+        line-height: 2;
+        font-size: 1.2em;
     }
 
-        .about__img {
-            width: 340px;
-            height: 340px;
-            border-radius: 340px;
-            overflow: hidden;
-            position: relative;
-            display: block;
-        }
-            .about__img img {
-                max-width: 100%;
-            }
-            .about__img video {
-                margin-top: -150px;
-            }
-        .about__info {
-            padding: 30px;
-            text-align: center;
-        }
-            .about__info a {
-                color: #948072;
-            }
-
-
-.collection {
-    position: relative;
-    width: 1060px;
-    padding: 60px 0;
-    margin: 0 auto;
+.about-section1 {
+    height: 800px;
 }
-    .collection__title {
-        font-weight: 300;
+    .about1__content {
+        top: 90px;
+        width: 600px;
+        margin: 0 auto;
         text-align: center;
+        position: relative;
+    }
+    .about1__img {
+        position: absolute;
+        top: 260px;
+        right: 0;
+        width: 80%;
     }
 
-.bag {
-    display: flex;
+.about-section2 {
+    height: 540px;
 }
-
-    .bag__img {
-        height: 580px;
+    .about2__content {
+        width: 420px;
+        position: absolute;
+        right: 50px;
+        top: 140px;
     }
-        .bag__img--small {
-            height: 480px;
-            margin: 50px;
+    .about2__img {
+        position: absolute;
+        left: 0;
+        top: 50px;
+        width: 55%;
+    }
+
+.about-section3 {
+    height: 700px;
+}
+    .about3__content {
+        position: relative;
+        width: 420px;
+        top: 450px;
+        left: 50px;
+    }
+    .about3__img {
+        position: absolute;
+        right: 0;
+        top: -200px;
+        width: 85%;
+    }
+
+.about-section4 {
+    height: 600px;
+}
+    .about4__content {
+        position: absolute;
+        right: 50px;
+        top: 250px;
+        width: 420px;
+    }
+
+    .about4__img {
+        position: absolute;
+        left: 150px;
+        top: 0;
+        width: 65%;
+    }
+
+.about-section5 {
+    height: 1000px;
+}
+    .about5__img {
+        position: absolute;
+        top: -50px;
+        right: 100px;
+        width: 82%;
+    }
+    .about5__img-tools-top {
+        position: absolute;
+        top: 620px;
+        width: 600px;
+        left: 0;
+    }
+    .about5__img-tools-bot {
+        position: absolute;
+        top: 940px;
+        left: 0;
+    }
+    .about5__content {
+        position: absolute;
+        top: 580px;
+        width: 420px;
+        right: 50px;
+    }
+
+.read-more {
+    position: relative;
+    height: 0px;
+    background: #222;
+    -webkit-transition: height 0.3s ease-in;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+    transition: height 0.3s ease-in;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+    overflow: hidden;
+}
+    .read-more__inner {
+        width: 1120px;
+        margin: 0 auto;
+        position: relative;
+        color: #fff;
+    }
+    .read-more.is-showing {
+        height: 800px;
+    }
+    .read-more__text {
+        position: absolute;
+        right: 50px;
+        top: 0;
+        padding: 30px 0;
+        width: 510px;
+    }
+    .read-more__col1 {
+        width: 420px;
+        position: absolute;
+        left: 50px;
+        top: 30px;
+    }
+    .read-more__col2 {
+        width: 420px;
+        position: absolute;
+        right: 50px;
+        top: 30px;
+    }
+    .read-more__video {
+        width: 360px;
+        height: 360px;
+        border-radius: 360px;
+        overflow: hidden;
+        position: relative;
+        margin: 30px 0;
+    }
+        .read-more__video video {
+            margin-top: -100px;
+            width: 100%;
         }
-
-    .bag__title {
-        font-size: 1.5em;
-        font-weight: 300;
-    }
-
-    .bag__info {
-        width: 380px;
-        margin: auto 0;
-    }
-        .bag__info--right {
-            text-align: right;
-            margin-left: 100px;
-        }
-
 
 .footer {
     width: 100%;
-    padding: 60px 0;
+    overflow: hidden;
     text-align: center;
 }
-
-    .logo--footer {
-        height: 90px;
+    .footer__tools {
+        width: 1120px;
+        margin: 0 auto;
+        position: relative;
+        display: block;
     }
-
+    .btn--footer-shop {
+        width: 300px;
+        display: block;
+        margin: 30px auto 150px;
+        font-size: 1.5em;
+    }
     .social {
         list-style: none;
         margin: 30px 0;
