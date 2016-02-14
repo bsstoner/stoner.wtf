@@ -312,6 +312,8 @@ h2 {
 
 .read-more {
     position: relative;
+    margin: 0 auto;
+    width: 1120px;
     height: 0px;
     background: #222;
     -webkit-transition: height 0.3s ease-in;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
@@ -360,7 +362,9 @@ h2 {
         }
 
 .footer {
-    width: 100%;
+    width: 1120px;
+    margin: 0 auto;
+    position: relative;
     overflow: hidden;
     text-align: center;
 }
