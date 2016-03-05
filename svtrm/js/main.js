@@ -25,7 +25,9 @@ $(document).ready(function() {
         hasScrolledClass = 0,
         now = 0,
         lastUpdate = 0,
-        updateHeaderTimeout;
+        updateHeaderTimeout,
+        sentScrollEvent,
+        sentBottomScrollEvent;
 
     function updateHeader() {
         var now = new Date().getTime();
@@ -37,11 +39,18 @@ $(document).ready(function() {
 
         clearTimeout(updateHeaderTimeout);
 
-        if ($doc.scrollTop() > 200) {
+        var scrollTop = $doc.scrollTop();
+
+        if (scrollTop > 200) {
             if (!hasScrolledClass) {
                 $header.addClass('scrolled');
                 hasScrolledClass = 1;
                 loadVideo();
+            }
+
+            if (!sentBottomScrollEvent && scrollTop > 4200) {
+                ga && ga('send', 'event', 'Page', 'scroll', 'bottom');
+                sentBottomScrollEvent = true;
             }
         } else if (hasScrolledClass) {
             $header.removeClass('scrolled');
@@ -49,6 +58,11 @@ $(document).ready(function() {
         }
 
         lastUpdate = now;
+
+        if (!sentScrollEvent && ga) {
+            ga('send', 'event', 'Page', 'scroll', 'start');
+            sentScrollEvent = true;
+        }
     };
 
     $(window).on('scroll', updateHeader);
@@ -74,6 +88,8 @@ $(document).ready(function() {
             loadVideo();
           }, 800);
       }
+
+      ga && ga('send', 'event', 'Page', 'click', 'what-is-upcycled-leather');
     });
 
     function loadVideo() {
@@ -85,4 +101,42 @@ $(document).ready(function() {
 
       renderedVideo = 1;
     }
+
+    // link clicks
+    $('.home__img').click(function() {
+        ga && ga('send', 'event', 'Page', 'click', 'top-image');
+    });
+    $('#about5 a').click(function(e) {
+        ga && ga('send', 'event', 'Page', 'click', 'backpack');
+    });
+    $('#about3 a').click(function(e) {
+        ga && ga('send', 'event', 'Page', 'click', 'weekender');
+    });
+    $('#about2 a').click(function(e) {
+        ga && ga('send', 'event', 'Page', 'click', 'doppkit');
+    });
+    $('#about1 a').click(function(e) {
+        ga && ga('send', 'event', 'Page', 'click', 'tote');
+    });
+    $('.logo__trmtab').click(function(e) {
+        ga && ga('send', 'event', 'Page', 'click', 'trmtab-logo');
+    });
+    $('.logo__sv').click(function(e) {
+        ga && ga('send', 'event', 'Page', 'click', 'sv-logo');
+    });
+    $('.btn--header').click(function(e) {
+        ga && ga('send', 'event', 'Page', 'click', 'shop-collection-header');
+    });
+    $('.btn--footer-shop').click(function(e) {
+        ga && ga('send', 'event', 'Page', 'click', 'shop-collection-footer');
+    });
+    $('.social-instagram').click(function() {
+        ga && ga('send', 'event', 'Page', 'click', 'instagram');
+    });
+    $('.social-twitter').click(function() {
+        ga && ga('send', 'event', 'Page', 'click', 'twitter');
+    });
+    $('.social-facebook').click(function() {
+        ga && ga('send', 'event', 'Page', 'click', 'facebook');
+    });
 });
