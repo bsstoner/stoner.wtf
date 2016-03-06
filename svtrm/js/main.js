@@ -100,7 +100,14 @@ $(document).ready(function() {
       );
 
       renderedVideo = 1;
-    }
+    };
+
+    function twitterConv() {
+        twttr && twttr.conversion.trackPid('nuh43', { 
+            tw_sale_amount: 1,
+            tw_order_quantity: 1
+        });
+    };
 
     // link clicks
     $('.home__img').click(function() {
@@ -108,15 +115,19 @@ $(document).ready(function() {
     });
     $('#about5 a').click(function(e) {
         ga && ga('send', 'event', 'Page', 'click', 'backpack');
+        twitterConv();
     });
     $('#about3 a').click(function(e) {
         ga && ga('send', 'event', 'Page', 'click', 'weekender');
+        twitterConv();
     });
     $('#about2 a').click(function(e) {
         ga && ga('send', 'event', 'Page', 'click', 'doppkit');
+        twitterConv();
     });
     $('#about1 a').click(function(e) {
         ga && ga('send', 'event', 'Page', 'click', 'tote');
+        twitterConv();
     });
     $('.logo__trmtab').click(function(e) {
         ga && ga('send', 'event', 'Page', 'click', 'trmtab-logo');
@@ -126,9 +137,11 @@ $(document).ready(function() {
     });
     $('.btn--header').click(function(e) {
         ga && ga('send', 'event', 'Page', 'click', 'shop-collection-header');
+        twitterConv();
     });
     $('.btn--footer-shop').click(function(e) {
         ga && ga('send', 'event', 'Page', 'click', 'shop-collection-footer');
+        twitterConv();
     });
     $('.social-instagram').click(function() {
         ga && ga('send', 'event', 'Page', 'click', 'instagram');
